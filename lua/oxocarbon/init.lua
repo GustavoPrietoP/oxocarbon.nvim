@@ -1,5 +1,32 @@
+local colors = {
+  name = "oxo",
+  color0 = '#1d1d1d',
+  color1 = '#e55794',
+  color2 = '#4be194',
+  color3 = '#df8157',
+  color4 = '#759fe8',
+  color5 = '#a477ea',
+  color6 = '#1bbab7',
+  color7 = '#b3b9b8',
+  color8 = '#252525',
+  color9 = '#df5b93',
+  color10 = '#53cb8d',
+  color11 = '#d9845e',
+  color12 = '#618dd9',
+  color13 = '#a27ae1',
+  color14 = '#1eb1af',
+  color15 = '#bdc3c2',
+  comment = '#404749',
+  background = "#111111",
+  black = '#111111',
+  darker = "#0b0b0b",
+  foreground = '#dadada',
+  cursorline = '#181818',
+}
+
 local _local_1_ = require("oxocarbon.colorutils")
 local blend_hex = _local_1_["blend-hex"]
+local darken_hex = _local_1_["darken-hex"]
 if vim.g.colors_name then
   vim.cmd.hi("clear")
 else
@@ -28,15 +55,15 @@ vim.g["terminal_color_14"] = oxocarbon.base07
 vim.g["terminal_color_15"] = oxocarbon.base06
 vim.api.nvim_set_hl(0, "ColorColumn", {fg = oxocarbon.none, bg = oxocarbon.base01})
 vim.api.nvim_set_hl(0, "Cursor", {fg = oxocarbon.base00, bg = oxocarbon.base04})
-vim.api.nvim_set_hl(0, "CursorLine", {fg = oxocarbon.none, bg = oxocarbon.base01})
+vim.api.nvim_set_hl(0, "CursorLine", {fg = oxocarbon.none, bg = colors.background})
 vim.api.nvim_set_hl(0, "CursorColumn", {fg = oxocarbon.none, bg = oxocarbon.base01})
 vim.api.nvim_set_hl(0, "CursorLineNr", {fg = oxocarbon.base04, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "QuickFixLine", {fg = oxocarbon.none, bg = oxocarbon.base01})
 vim.api.nvim_set_hl(0, "Error", {fg = oxocarbon.base10, bg = oxocarbon.base01})
-vim.api.nvim_set_hl(0, "LineNr", {fg = oxocarbon.base03, bg = oxocarbon.base00})
+vim.api.nvim_set_hl(0, "LineNr", {fg = colors.color8, bg = colors.background})
 vim.api.nvim_set_hl(0, "NonText", {fg = oxocarbon.base02, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "Normal", {fg = oxocarbon.base04, bg = oxocarbon.base00})
-vim.api.nvim_set_hl(0, "Pmenu", {fg = oxocarbon.base04, bg = oxocarbon.base01})
+vim.api.nvim_set_hl(0, "Normal", {fg = colors.foreground, bg = colors.background})
+vim.api.nvim_set_hl(0, "Pmenu", {fg = oxocarbon.base04, bg = colors.darker})
 vim.api.nvim_set_hl(0, "PmenuSbar", {fg = oxocarbon.base04, bg = oxocarbon.base01})
 vim.api.nvim_set_hl(0, "PmenuSel", {fg = oxocarbon.base08, bg = oxocarbon.base02})
 vim.api.nvim_set_hl(0, "PmenuThumb", {fg = oxocarbon.base08, bg = oxocarbon.base02})
@@ -50,14 +77,10 @@ vim.api.nvim_set_hl(0, "MatchParen", {fg = oxocarbon.none, bg = oxocarbon.base02
 vim.api.nvim_set_hl(0, "Bold", {fg = oxocarbon.none, bg = oxocarbon.none, bold = true})
 vim.api.nvim_set_hl(0, "Italic", {fg = oxocarbon.none, bg = oxocarbon.none, italic = true})
 vim.api.nvim_set_hl(0, "Underlined", {fg = oxocarbon.none, bg = oxocarbon.none, underline = true})
-vim.api.nvim_set_hl(0, "DiagnosticWarn", {fg = oxocarbon.base14, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiagnosticError", {fg = oxocarbon.base10, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiagnosticInfo", {fg = oxocarbon.base09, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiagnosticHint", {fg = oxocarbon.base04, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", {fg = oxocarbon.base14, bg = oxocarbon.none, undercurl = true})
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", {fg = oxocarbon.base10, bg = oxocarbon.none, undercurl = true})
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", {fg = oxocarbon.base04, bg = oxocarbon.none, undercurl = true})
-vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", {fg = oxocarbon.base04, bg = oxocarbon.none, undercurl = true})
+--vim.api.nvim_set_hl(0, "DiagnosticWarn", {fg = colors.black, bg = darken_hex(colors.color11, 0.15)})
+--vim.api.nvim_set_hl(0, "DiagnosticError", {fg = colors.black, bg = darken_hex(colors.color9, 0.15)})
+--vim.api.nvim_set_hl(0, "DiagnosticInfo", {fg = colors.black, bg =  darken_hex(colors.color4, 0.15)})
+--vim.api.nvim_set_hl(0, "DiagnosticHint", {fg = colors.color6, bg = colors.black})
 vim.api.nvim_set_hl(0, "HealthError", {fg = oxocarbon.base10, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "HealthWarning", {fg = oxocarbon.base14, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "HealthSuccess", {fg = oxocarbon.base13, bg = oxocarbon.none})
@@ -126,7 +149,7 @@ vim.api.nvim_set_hl(0, "@lsp.typemod.variable.defaultLibrary", {link = "@variabl
 vim.api.nvim_set_hl(0, "@lsp.typemod.variable.injected", {link = "@variable"})
 vim.api.nvim_set_hl(0, "Folded", {fg = oxocarbon.base02, bg = oxocarbon.base01})
 vim.api.nvim_set_hl(0, "FoldColumn", {fg = oxocarbon.base01, bg = oxocarbon.base00})
-vim.api.nvim_set_hl(0, "SignColumn", {fg = oxocarbon.base01, bg = oxocarbon.base00})
+vim.api.nvim_set_hl(0, "SignColumn", {fg = oxocarbon.base01, bg = colors.background})
 vim.api.nvim_set_hl(0, "Directory", {fg = oxocarbon.base08, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "EndOfBuffer", {fg = oxocarbon.base01, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "ErrorMsg", {fg = oxocarbon.base10, bg = oxocarbon.none})
@@ -140,13 +163,14 @@ vim.api.nvim_set_hl(0, "helpHyperTextJump", {fg = oxocarbon.base08, bg = oxocarb
 vim.api.nvim_set_hl(0, "helpSpecial", {fg = oxocarbon.base09, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "helpHeadline", {fg = oxocarbon.base10, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "helpHeader", {fg = oxocarbon.base15, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiffAdded", {fg = oxocarbon.base07, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiffChanged", {fg = oxocarbon.base09, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiffRemoved", {fg = oxocarbon.base10, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiffAdd", {bg = "#122f2f", fg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiffChange", {bg = "#222a39", fg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiffText", {bg = "#2f3f5c", fg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "DiffDelete", {bg = "#361c28", fg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "diffAdded", {fg = colors.color4, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "diffRemoved", {fg = colors.color1, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "diffChanged", {fg = colors.color5, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "diffOldFile", {fg = colors.color5, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "diffNewFile", {fg = colors.color5, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "diffFile", {fg = colors.color7, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "diffLine", {fg = colors.color1, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "diffIndexLine", {fg = colors.color12, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "IncSearch", {fg = oxocarbon.base06, bg = oxocarbon.base10})
 vim.api.nvim_set_hl(0, "Search", {fg = oxocarbon.base01, bg = oxocarbon.base08})
 vim.api.nvim_set_hl(0, "TabLine", {link = "StatusLineNC"})
@@ -170,7 +194,7 @@ vim.api.nvim_set_hl(0, "Identifier", {fg = oxocarbon.base04, bg = oxocarbon.none
 vim.api.nvim_set_hl(0, "Include", {fg = oxocarbon.base09, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "Keyword", {fg = oxocarbon.base09, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "Label", {fg = oxocarbon.base09, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "Number", {fg = oxocarbon.base15, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "Number", {fg = colors.color12, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "Operator", {fg = oxocarbon.base09, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "PreProc", {fg = oxocarbon.base09, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "Repeat", {fg = oxocarbon.base09, bg = oxocarbon.none})
@@ -266,7 +290,7 @@ vim.api.nvim_set_hl(0, "@reference", {fg = oxocarbon.base04, bg = oxocarbon.none
 vim.api.nvim_set_hl(0, "NvimInternalError", {fg = oxocarbon.base00, bg = oxocarbon.base08})
 vim.api.nvim_set_hl(0, "NormalFloat", {fg = oxocarbon.base05, bg = oxocarbon.blend})
 vim.api.nvim_set_hl(0, "FloatBorder", {fg = oxocarbon.blend, bg = oxocarbon.blend})
-vim.api.nvim_set_hl(0, "NormalNC", {fg = oxocarbon.base05, bg = oxocarbon.base00})
+vim.api.nvim_set_hl(0, "NormalNC", {fg = colors.foreground, bg = colors.background})
 vim.api.nvim_set_hl(0, "TermCursor", {fg = oxocarbon.base00, bg = oxocarbon.base04})
 vim.api.nvim_set_hl(0, "TermCursorNC", {fg = oxocarbon.base00, bg = oxocarbon.base04})
 vim.api.nvim_set_hl(0, "StatusLine", {fg = oxocarbon.base04, bg = oxocarbon.base00})
@@ -279,14 +303,14 @@ vim.api.nvim_set_hl(0, "StatusNormal", {fg = oxocarbon.base00, bg = oxocarbon.ba
 vim.api.nvim_set_hl(0, "StatusCommand", {fg = oxocarbon.base00, bg = oxocarbon.base13})
 vim.api.nvim_set_hl(0, "StatusLineDiagnosticWarn", {fg = oxocarbon.base14, bg = oxocarbon.base00, bold = true})
 vim.api.nvim_set_hl(0, "StatusLineDiagnosticError", {fg = oxocarbon.base10, bg = oxocarbon.base00, bold = true})
-vim.api.nvim_set_hl(0, "TelescopeBorder", {fg = oxocarbon.blend, bg = oxocarbon.blend})
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", {fg = oxocarbon.base02, bg = oxocarbon.base02})
-vim.api.nvim_set_hl(0, "TelescopePromptNormal", {fg = oxocarbon.base05, bg = oxocarbon.base02})
-vim.api.nvim_set_hl(0, "TelescopePromptPrefix", {fg = oxocarbon.base08, bg = oxocarbon.base02})
-vim.api.nvim_set_hl(0, "TelescopeNormal", {fg = oxocarbon.none, bg = oxocarbon.blend})
-vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {fg = oxocarbon.base02, bg = oxocarbon.base12})
-vim.api.nvim_set_hl(0, "TelescopePromptTitle", {fg = oxocarbon.base02, bg = oxocarbon.base11})
-vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {fg = oxocarbon.blend, bg = oxocarbon.blend})
+vim.api.nvim_set_hl(0, "TelescopeBorder", {fg = colors.darker, bg = colors.darker})
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", {fg = colors.cursorline, bg = colors.cursorline})
+vim.api.nvim_set_hl(0, "TelescopePromptNormal", {fg = colors.foreground, bg = colors.cursorline})
+vim.api.nvim_set_hl(0, "TelescopePromptPrefix", {fg = colors.color1, bg = colors.cursorline})
+vim.api.nvim_set_hl(0, "TelescopeNormal", {fg = oxocarbon.none, bg = colors.darker})
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {fg = colors.cursorline, bg = colors.base12})
+vim.api.nvim_set_hl(0, "TelescopePromptTitle", {fg = colors.background, bg = colors.color9})
+vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {fg = colors.cursorline, bg = colors.color10})
 vim.api.nvim_set_hl(0, "TelescopeSelection", {fg = oxocarbon.none, bg = oxocarbon.base02})
 vim.api.nvim_set_hl(0, "TelescopePreviewLine", {fg = oxocarbon.none, bg = oxocarbon.base01})
 vim.api.nvim_set_hl(0, "TelescopeMatching", {fg = oxocarbon.base08, bg = oxocarbon.none, bold = true, italic = true})
@@ -308,7 +332,7 @@ vim.api.nvim_set_hl(0, "NotifyTRACETitle", {fg = oxocarbon.base13, bg = oxocarbo
 vim.api.nvim_set_hl(0, "CmpItemAbbr", {fg = "#adadad", bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", {fg = oxocarbon.base05, bg = oxocarbon.none, bold = true})
 vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", {fg = oxocarbon.base04, bg = oxocarbon.none, bold = true})
-vim.api.nvim_set_hl(0, "CmpItemMenu", {fg = oxocarbon.base04, bg = oxocarbon.none, italic = true})
+vim.api.nvim_set_hl(0, "CmpItemMenu", {fg = oxocarbon.base04, bg = oxocarbon.none, italic = false})
 vim.api.nvim_set_hl(0, "CmpItemKindInterface", {fg = oxocarbon.base01, bg = oxocarbon.base08})
 vim.api.nvim_set_hl(0, "CmpItemKindColor", {fg = oxocarbon.base01, bg = oxocarbon.base08})
 vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", {fg = oxocarbon.base01, bg = oxocarbon.base08})
@@ -336,16 +360,19 @@ vim.api.nvim_set_hl(0, "CmpItemKindValue", {fg = oxocarbon.base01, bg = oxocarbo
 vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", {fg = oxocarbon.base01, bg = oxocarbon.base15})
 vim.api.nvim_set_hl(0, "NvimTreeImageFile", {fg = oxocarbon.base12, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", {fg = oxocarbon.base12, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", {fg = oxocarbon.base00, bg = oxocarbon.base00})
-vim.api.nvim_set_hl(0, "NvimTreeFolderName", {fg = oxocarbon.base09, bg = oxocarbon.none})
+--vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", {fg = colors.background, bg = colors.background})
+vim.api.nvim_set_hl(0, "NvimTreeFolderName", {fg = "#EFFFFF", bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {fg = oxocarbon.base02, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "NvimTreeEmptyFolderName", {fg = oxocarbon.base15, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", {fg = oxocarbon.base15, bg = oxocarbon.none})
-vim.api.nvim_set_hl(0, "NvimTreeNormal", {fg = oxocarbon.base04, bg = oxocarbon.base00})
+vim.api.nvim_set_hl(0, "NvimTreeNormal", {fg = colors.base04, bg = colors.darker})
 vim.api.nvim_set_hl(0, "NeogitBranch", {fg = oxocarbon.base10, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "NeogitRemote", {fg = oxocarbon.base09, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "NeogitHunkHeader", {fg = oxocarbon.base04, bg = oxocarbon.base02})
 vim.api.nvim_set_hl(0, "NeogitHunkHeaderHighlight", {fg = oxocarbon.base04, bg = oxocarbon.base03})
+vim.api.nvim_set_hl(0, "GitSignsAdd", {fg = colors.color4, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "GitSignsChange", {fg = colors.color5, bg = oxocarbon.none})
+vim.api.nvim_set_hl(0, "GitSignsDelete", {fg = colors.color1, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "HydraRed", {fg = oxocarbon.base12, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "HydraBlue", {fg = oxocarbon.base09, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "HydraAmaranth", {fg = oxocarbon.base10, bg = oxocarbon.none})
@@ -371,4 +398,39 @@ vim.api.nvim_set_hl(0, "VimwikiHeaderChar", {link = "markdownH1"})
 vim.api.nvim_set_hl(0, "VimwikiList", {link = "markdownListMarker"})
 vim.api.nvim_set_hl(0, "VimwikiLink", {link = "markdownUrl"})
 vim.api.nvim_set_hl(0, "VimwikiCode", {link = "markdownCode"})
+vim.api.nvim_set_hl(0, "DevIconDefault", {fg=  colors.color7})
+vim.api.nvim_set_hl(0, "DevIconc", {fg=  colors.color12})
+vim.api.nvim_set_hl(0, "DevIconcss", {fg=  colors.color12})
+vim.api.nvim_set_hl(0, "DevIcondeb", {fg=  colors.color6})
+vim.api.nvim_set_hl(0, "DevIconDockerfile", {fg=  colors.color6})
+vim.api.nvim_set_hl(0, "DevIconhtml", {fg=  colors.color9})
+vim.api.nvim_set_hl(0, "DevIconjpeg", {fg=  colors.color2})
+vim.api.nvim_set_hl(0, "DevIconjpg", {fg=  colors.color2})
+vim.api.nvim_set_hl(0, "DevIconjs", {fg=  colors.color11})
+vim.api.nvim_set_hl(0, "DevIconkt", {fg=  colors.color4})
+vim.api.nvim_set_hl(0, "DevIconlock", {fg=  colors.color4})
+vim.api.nvim_set_hl(0, "DevIconmp3", {fg=  colors.color1})
+vim.api.nvim_set_hl(0, "DevIconmp4", {fg=  colors.color1})
+vim.api.nvim_set_hl(0, "DevIconout", {fg=  colors.color1})
+vim.api.nvim_set_hl(0, "DevIconpng", {fg=  colors.color2})
+vim.api.nvim_set_hl(0, "DevIconpy", {fg=  colors.color4})
+vim.api.nvim_set_hl(0, "DevIcontoml", {fg=  colors.color4})
+vim.api.nvim_set_hl(0, "DevIconts", {fg=  colors.color12})
+vim.api.nvim_set_hl(0, "DevIconttf", {fg=  colors.color15})
+vim.api.nvim_set_hl(0, "DevIconrb", {fg=  colors.color9})
+vim.api.nvim_set_hl(0, "DevIconrpm", {fg=  colors.color11})
+vim.api.nvim_set_hl(0, "DevIconvue", {fg=  colors.color2})
+vim.api.nvim_set_hl(0, "DevIconwoff", {fg=  colors.color15})
+vim.api.nvim_set_hl(0, "DevIconwoff2", {fg= colors.color15})
+vim.api.nvim_set_hl(0, "DevIconxz", {fg=  colors.color11})
+vim.api.nvim_set_hl(0, "DevIconzip", {fg=  colors.color11})
+vim.api.nvim_set_hl(0, "DevIconzig", {fg=  colors.color09})
+vim.api.nvim_set_hl(0, "WhichKey",  { fg = colors.color4 })
+vim.api.nvim_set_hl(0, "WhichKeySeparator", { fg = colors.color8 })
+vim.api.nvim_set_hl(0, "WhichKeyDesc",  { fg = colors.color1 })
+vim.api.nvim_set_hl(0, "WhichKeyGroup",  { fg = colors.color3 })
+vim.api.nvim_set_hl(0, "WhichKeyValue", { fg = colors.color5 })
+vim.api.nvim_set_hl(0, "WhichKeyFloat", { bg = colors.darker })
+
 return {oxocarbon = oxocarbon}
+
