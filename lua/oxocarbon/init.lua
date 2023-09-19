@@ -80,7 +80,7 @@ vim.api.nvim_set_hl(0, "Underlined", {fg = oxocarbon.none, bg = oxocarbon.none, 
 --vim.api.nvim_set_hl(0, "DiagnosticWarn", {fg = colors.black, bg = darken_hex(colors.color11, 0.15)})
 --vim.api.nvim_set_hl(0, "DiagnosticError", {fg = colors.black, bg = darken_hex(colors.color9, 0.15)})
 --vim.api.nvim_set_hl(0, "DiagnosticInfo", {fg = colors.black, bg =  darken_hex(colors.color4, 0.15)})
---vim.api.nvim_set_hl(0, "DiagnosticHint", {fg = colors.color6, bg = colors.black})
+vim.api.nvim_set_hl(0, "DiagnosticHint", {fg = colors.color6, bg = colors.black})
 vim.api.nvim_set_hl(0, "HealthError", {fg = oxocarbon.base10, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "HealthWarning", {fg = oxocarbon.base14, bg = oxocarbon.none})
 vim.api.nvim_set_hl(0, "HealthSuccess", {fg = oxocarbon.base13, bg = oxocarbon.none})
